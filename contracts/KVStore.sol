@@ -4,8 +4,8 @@ contract KVStore {
 
   mapping(address => mapping(string => string)) store;
 
-  function get(string key) public constant returns(string) {
-    return store[msg.sender][key];
+  function get(address acct, string key) public constant returns(string) {
+    return store[acct][key];
   }
   function set(string key, string value) public {
     store[msg.sender][key] = value;
