@@ -4,7 +4,7 @@ contract KVStore {
 
   mapping(address => mapping(string => string)) store;
 
-  function get(address acct, string key) public constant returns(string) {
+  function get(address acct, string key) public view returns(string) {
     return store[acct][key];
   }
   function set(string key, string value) public {
