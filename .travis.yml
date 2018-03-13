@@ -11,5 +11,6 @@ before-script:
   - ganache-cli -p 7545
 script:
   - truffle compile
+  - until curl localhost:7545; echo "Sleep" ;sleep 1;done
   - truffle migrate --network development
   - truffle test
