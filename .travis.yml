@@ -1,0 +1,17 @@
+dist: trusty
+sudo: required
+language: node_js
+node_js:
+  - "8"
+cache:
+  yarn: true
+install:
+  - npm install -g truffle
+  - npm install -g ganache-cli
+  - npm install
+before-script:
+  - ganache-cli -p 7545
+script:
+  - truffle compile
+  - truffle migrate --network development
+  - truffle test
