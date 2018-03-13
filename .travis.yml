@@ -7,10 +7,10 @@ install:
   - npm install -g truffle
   - npm install -g ganache-cli
   - npm install
+services: ganache-cli
 before-script:
   - ganache-cli -p 7545
 script:
   - truffle compile
-  - until curl localhost:7545; echo "Sleep" ;sleep 1;
   - truffle migrate --network development
   - truffle test
