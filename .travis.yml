@@ -3,7 +3,6 @@ sudo: required
 language: node_js
 node_js:
   - "8"
-services: 
 install:
   - npm install -g truffle
   - npm install -g ganache-cli
