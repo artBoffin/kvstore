@@ -7,9 +7,9 @@ install:
   - npm install -g truffle
   - npm install -g ganache-cli
   - npm install
-before-script:
-  - ganache-cli -p 7545 > /dev/null &
 script:
+  - ganache-cli -p 7545 > /dev/null &
+  - sleep 5
   - truffle compile
   - truffle migrate --network development
   - truffle test
