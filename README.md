@@ -1,4 +1,5 @@
 # KVStore
+[![Build Status](https://travis-ci.org/willhay/kvstore.svg?branch=master)](https://travis-ci.org/willhay/kvstore)
 
 Store any data on the Ethereum blockchain specific to your Ethereum address. Only you can alter the data associated with your address. 
 
