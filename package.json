@@ -1,0 +1,22 @@
+{
+  "name": "kvstore",
+  "version": "1.0.0",
+  "description": "Store any data on the Ethereum blockchain specific to your Ethereum address.",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willhay/kvstore.git"
+  },
+  "author": "Will Hay Jr.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willhay/kvstore/issues"
+  },
+  "homepage": "https://github.com/willhay/kvstore#readme"
+}
