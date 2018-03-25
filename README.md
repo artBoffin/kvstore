@@ -72,10 +72,10 @@ Will store the string "hello world" associated with the key "satoshi" on your lo
 
 You should now see the terminal window containing the ganache-cli instance update with a new transaction, or the Ganache client show some new transactions on the Transactions tab. 
 
-If you want to access the data you've stored, you can call kvstore.get(key):
+If you want to access the data you've stored, you can call kvstore.get(address, key):
 
 ```
-kvstore.get("satoshi")
+kvstore.get(web3.eth.accounts[0], "satoshi")
 ```
 will return "hello world"
 
