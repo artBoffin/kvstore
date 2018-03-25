@@ -2,15 +2,19 @@ dist: trusty
 sudo: required
 language: node_js
 node_js:
-  - "8"
+- '8'
 install:
-  - npm install -g truffle
-  - npm install -g ganache-cli
-  - npm install
+- npm install -g truffle
+- npm install -g ganache-cli
+- npm install
 script:
-  - ganache-cli -p 7545 > /dev/null &
-  - sleep 5
-  - truffle compile
-  - truffle migrate --network development
-  - truffle test
-  - truffle migrate --network rinkeby
+- ganache-cli -p 7545 > /dev/null &
+- sleep 5
+- truffle compile
+- truffle migrate --network development
+- truffle test
+- truffle migrate --network rinkeby
+env:
+  matrix:
+  - secure: dkCnWd/GGP7jH9dLo7wwgicYK5SkjKRsA5UfF30HB9lJ9vroP4iEzijObJ8yHa4pGhuWOkEgPL2KNsNRJuRI1IMEE5Tid36D4MxIuR4YoG8N2kkdkUpJ5oxBdTCPL77RFMRq/TlOX1RCKpxSemOPOPROrS/9mJkQeJaRC916e+a0rE3u+GKBFffF9bLlXQLF4EWBjRrJwcvc+Cl8Y5wMnG7xxFyaitFtg8oygAx96KeYZM5NlP+oda85ymvR4+nCwEcm/ndkjy18SGIwA2/Wxw8ek+2vtChfyLcjmTVuKBXTtRZZMDbYUn1Um2mH1ow8L/8I8Qqnch05HIMLzQdal4AIbSJ7ZhmufUzPZhDvQ5Ny7lY7vuSvKhFWruPpLS1R87kU9HaBq9pP0JSse0AojcZxlcjrXTXkryQxOaAWoe+qklHV30Z1I0CUmXeLIm3rMeuPqoLUzG1VtAJEfrhk4b6XZxv8uUYS1mTdxZNkrdstHn2KQ0PuH/okQQNWxVh0PGr3R7+m40Gt8B1YGJLNK04JSZ93D6oFwKXBqpGWbhjv61tuG7McdTIYbZ1bG+zo0JMcvdKc042UditwQkWarRGFBC+241U65bv96Beh19KweP17Wd5SWWPl0gSkEHqvudMZsFq0S9oWR22/n/2okYXfnp1XNFezsoDHhRyoi34=
+  - secure: A/8CCC7iC0RheU3c8eIWbVIXgfcbXZWMbkGGNhdd2vRqh71jR9znf9M79U5JNCu06f6PoBjO1mEZ+3oJzKQhhMZoJj4/Y7SLNoSR3SNC+Adl/KzG9YcO3rstm4465cGOM7dZBhqImPQRsE6RvxVUYVCcL1r1nLyQbzzLNVIWkNadHoeijrOPS82yJ9ziZx9YNpbqjR8mwG3QnRgiTha/X5J7swwrZuBdZzs2WPoccOZHSJ45Ehct4gWfhOmGVsZi8TLywzbyPxXLMNUyYg8cC8RNqb6JWtwDSblI/hP/y3prazE8bgPxFDMkpt7gPw9aadi5ME5qayD0KFZ1kJQmZL/GGe+YAkS9VSph47CW/9i/ueRPWH/0kP56J0twTARjjARGmW/53fiD6vVUakH4wr0YvXsxVThTLoA3lEZCCNA6JtKvYMmP0dm/7fP5YjZD/ivJo4egLbqF0fSKbV67hYfahwhJsiBlvVWWC8n0HVnJ5bBsqJ34Q2wPYh5q7c99TLHpsgZXoGH+gv3NHjrL9rWFNlyDPOZj54EkN2G4Hs9R7UuG9BbUiUz/WiHrbHIwVp52dJX6eYYsv9qui+EhduRttGSKxbtQ0wIrYyzHe0rSVphTahlIvHho1kfpF60tAOsaj5WC4FJ3Sj4+uTXUAyB4SQxHHpEb3QMuD3W2N5k=
