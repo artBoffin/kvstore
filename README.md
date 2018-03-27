@@ -7,11 +7,74 @@ Store any data on the Ethereum blockchain specific to your Ethereum address. Onl
 
 These instructions will help you connect to the KVStore contract on the mainnet.
 
+### Prerequisites
+
+Install geth for your local machine
+
+[Installation Instructions](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
+
+At this point you need to make sure you have an account with ether in it so you can actually pay the fees associated with using the contract set function. 
+
+Run the following command
+
+```
+$ geth account new
+Your new account is locked with a password. Please give a password. Do not forget this password.
+Passphrase:
+Repeat Passphrase:
+Address: {addr}
+```
+
+After setting a password, send some ether to the account address given. 
+
+You can check its balance by running 
+
+```
+web3.fromWei(eth.getBalance(eth.accounts[0]));
+```
+
+### Setting Up
+Run the following command to open up a new geth console to allow you to interact with the Ethereum network.
+
+```
+geth --verbosity 0 console
+```
+
+Once the console is opened copy and paste the following command.
+
+```
+var kvstoreContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"_key","type":"string"},{"name":"_value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_acct","type":"address"},{"name":"_key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]).at("0x3CB7072dA78Ca1DfB00f52d509A31F0c6A1F3a4c");
+```
+
+This creates a new variable containing the smart contract so you can interact with it.
+
+```
+personal.unlockAccount(eth.accounts[0],password,600);
+```
+This will unlock your account you previously created for 10 minutes, letting you send ether from it.
+
+Now that your account is unlocked, you can save data to the Ethereum blockchain by running:
+```
+kvstoreContract.set("fly","star",{from:eth.accounts[0]});
+```
+Now you have to wait a few minutes for the data to be confirmed in the next block. 
+
+You can check the status on etherscan.io
+
+Now run 
+
+```
+kvstoreContract.get(eth.accounts[1],"fly");
+```
+
+And you will see the data you previously saved to the Ethereum network in the console! 
+
+
 ## Testing Locally
 
 These instructions will help you get the KVStore contract up and running on your local machine for development and testing purposes.
 
-## Prerequisites
+### Prerequisites
 
 Install truffle
 
@@ -26,7 +89,7 @@ npm install -g ganache-cli
 
 Or download the [Ganache client](http://truffleframework.com/ganache/)
 
-## Setting up
+### Setting up
 
 If you opted to install ganache-cli, open a terminal window and run 
 ```
@@ -54,7 +117,7 @@ This compiles the contract, migrates it to the blockchain you setup above, and p
 
 You can define a new network in the truffle.js config file if needed. 
 
-## Running the contract
+### Running the contract
 
 Now you are inside the truffle console and should see a prompt similar to:
 
