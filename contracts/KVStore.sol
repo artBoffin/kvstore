@@ -9,8 +9,8 @@ contract KVStore {
     return store[_acct][_key];
   }
   function set(string _key, string _value) public {
-    if (bytes(_value).length <= MAX_STR_LENGTH) {
+    // if (bytes(_value).length <= MAX_STR_LENGTH) {
       store[msg.sender][_key] = _value;
-    }
+    // }
   }
 }
