@@ -27,12 +27,6 @@ Address: {addr}
 
 After setting a password, send some ether to the account address given. 
 
-You can check its balance by running 
-
-```
-web3.fromWei(eth.getBalance(eth.accounts[0]));
-```
-
 ### Setting Up
 Run the following command to open up a new geth console to allow you to interact with the Ethereum network.
 
@@ -40,7 +34,14 @@ Run the following command to open up a new geth console to allow you to interact
 geth --verbosity 0 console
 ```
 
-Once the console is opened copy and paste the following command.
+
+You need to double check to see if you have an ethereum balance by running 
+
+```
+web3.fromWei(eth.getBalance(eth.accounts[0]));
+```
+
+Once you've confirmed you have ether to pay transaction fees, copy and paste the following command.
 
 ```
 var kvstoreContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"_key","type":"string"},{"name":"_value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_acct","type":"address"},{"name":"_key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]).at("0x3CB7072dA78Ca1DfB00f52d509A31F0c6A1F3a4c");
