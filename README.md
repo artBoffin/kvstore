@@ -3,7 +3,7 @@
 
 Store any data on the Ethereum blockchain specific to your Ethereum address. Only you can alter the data associated with your address. 
 
-## Getting Started
+## Testing Locally
 
 These instructions will help you get the KVStore contract up and running on your local machine for development and testing purposes.
 
