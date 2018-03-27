@@ -24,6 +24,6 @@ for (let networkName in NETWORK_IDS) {
     provider: new HDWalletProvider(MNEMONIC, 'https://' + networkName + '.infura.io/' + INFURA_API_KEY),
     network_id: NETWORK_IDS[ networkName ],
     gas: "4210000",           
-    gasPrice: "20000000000" 
+    gasPrice: "7500000000" 
   };
 }
