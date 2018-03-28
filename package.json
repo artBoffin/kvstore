@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "truffle test",
-    "migrate:rinkeby": "truffle migrate --network rinkeby"
+    "migrate:rinkeby": "truffle migrate --network rinkeby",
+    "migrate:mainnet": "truffle migrate --network mainnet"
   },
   "files": [
     "build/"

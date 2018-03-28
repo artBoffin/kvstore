@@ -1,2 +1,2 @@
-- truffle migrate --network rinkeby
-- truffle migrate --network mainnet
+npm run migrate:rinkeby
+npm run migrate:mainnet
