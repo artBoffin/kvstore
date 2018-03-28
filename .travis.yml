@@ -22,5 +22,10 @@ script:
 - truffle compile
 - truffle migrate --network development
 - truffle test
-- truffle migrate --network rinkeby
-- truffle migrate --network mainnet
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: ./deploy.sh
+    on:
+      all_branches: true
+      tags: true

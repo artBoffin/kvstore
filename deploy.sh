@@ -1,0 +1,2 @@
+- truffle migrate --network rinkeby
+- truffle migrate --network mainnet
