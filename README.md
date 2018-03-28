@@ -38,7 +38,7 @@ geth --verbosity 0 console
 You need to double check to see if you have an ethereum balance by running 
 
 ```
-web3.fromWei(eth.getBalance(eth.accounts[0]));
+web3.fromWei(eth.getBalance(eth.accounts[1]));
 ```
 
 Once you've confirmed you have ether to pay transaction fees, copy and paste the following command.
@@ -50,13 +50,13 @@ var kvstoreContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"_k
 This creates a new variable containing the smart contract so you can interact with it.
 
 ```
-personal.unlockAccount(eth.accounts[0],password,600);
+personal.unlockAccount(eth.accounts[1],password,600);
 ```
 This will unlock your account you previously created for 10 minutes, letting you send ether from it.
 
 Now that your account is unlocked, you can save data to the Ethereum blockchain by running:
 ```
-kvstoreContract.set("fly","star",{from:eth.accounts[0]});
+kvstoreContract.set("fly","star",{from:eth.accounts[1]});
 ```
 Now you have to wait a few minutes for the data to be confirmed in the next block. 
 
