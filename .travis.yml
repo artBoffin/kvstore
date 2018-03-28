@@ -28,4 +28,3 @@ deploy:
     script: ./deploy.sh
     on:
       all_branches: true
-      tags: true
