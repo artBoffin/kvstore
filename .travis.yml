@@ -22,9 +22,5 @@ script:
 - truffle compile
 - truffle migrate --network development
 - truffle test
-deploy:
-  - provider: script
-    skip_cleanup: true
-    script: npm run migrate:mainnet
-    on:
-      all_branches: true
+- truffle migrate --network rinkeby
+- truffle migrate --network mainnet
