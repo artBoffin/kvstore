@@ -25,6 +25,6 @@ script:
 deploy:
   - provider: script
     skip_cleanup: true
-    script: chmod +x ./deploy.sh
+    script: npm run migrate:mainnet
     on:
       all_branches: true
