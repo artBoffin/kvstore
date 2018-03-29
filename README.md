@@ -61,7 +61,7 @@ Put your MetaMask address in the *address spot in the input and then the key val
 Note the *address used in should NOT be the contract address, but your MetaMask account address which can be found in the Account input in the top right or if you click the MetaMask extension you can find the address there. 
 
 ```
-*account, "star"
+*address, "star"
 ```
 You may have to wait a minute or two for the data you just set to be propogated across the network and included in the next block before Get() will return the value correctly.  
 
