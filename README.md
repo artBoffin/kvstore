@@ -25,6 +25,8 @@ Exit out of the browser/ballot.sol file and create a new one called KVStore.sol 
 
 Copy and paste the contract code from [here](https://github.com/willhay/kvstore/blob/master/contracts/KVStore.sol) into the text editor. 
 
+In the top right, click the "Start to Compile" button or check "Auto Compile".
+
 Click on the Run tab in the top right. 
 
 Your "Environment" should be set to Injected Web3 (Main (1))
@@ -56,9 +58,12 @@ Your data is now written to the Ethereum blockchain and you can access it using 
 
 Put your MetaMask address in the *address spot in the input and then the key value as the second argument of the Get function. 
 
+Note the *address used in should NOT be the contract address, but your MetaMask account address which can be found in the Account input in the top right or if you click the MetaMask extension you can find the address there. 
+
 ```
-*account, "key"
+*account, "star"
 ```
+You may have to wait a minute or two for the data you just set to be propogated across the network and included in the next block before Get() will return the value correctly.  
 
 If you put in the parameters correctly, the Get function will return the data you just set earlier!
 
