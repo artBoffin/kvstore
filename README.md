@@ -28,7 +28,16 @@ Address: {addr}
 After setting a password, send some ether to the account address given. 
 
 ### Setting Up
-Run the following command to open up a new geth console to allow you to interact with the Ethereum network.
+
+You are going to have to wait awhile for the blockchain to sync using geth. You can speed up the process by running 
+
+```
+geth --fast --cache=1024 --maxpeers=50
+```
+
+The cache=1024 allocates 1GB of RAM to syncing, you can up this to 2048 (2GB) or 4096 (4GB) depending on your computer's RAM to increase syncing speed.
+
+Once the chain is synced up, run the following command to open up a new geth console to allow you to interact with the Ethereum network.
 
 ```
 geth --verbosity 0 console
