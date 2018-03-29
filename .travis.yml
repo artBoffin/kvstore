@@ -21,5 +21,3 @@ script:
 - sleep 5
 - truffle migrate --network development
 - truffle test
-- truffle migrate --network rinkeby
-- truffle migrate --network mainnet

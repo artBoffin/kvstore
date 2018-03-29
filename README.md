@@ -3,9 +3,68 @@
 
 Store any data on the Ethereum blockchain specific to your Ethereum address. Only you can alter the data associated with your address. 
 
-## Using the contract
+I've outlined two potential ways to interact with the contract on the mainnet, using Remix or geth. Remix is definitely easier to setup if you want to go the faster route but lacks some of the functionality that geth offers. 
 
-These instructions will help you connect to the KVStore contract on the mainnet.
+## Using the contract (Remix IDE)
+
+These instructions will help you connect to the KVStore contract on the mainnet using Remix, a web based Solidity IDE.
+
+### Prerequisites
+
+Download [MetaMask](https://metamask.io/). 
+
+Open up MetaMask once you add the extension and create a new account.
+
+Send some ether to your new account. Depending on how much data you want to store, I'd recommend at least $1, as the set function at the current (3/18) gas prices costs about 5-10 cents. 
+
+### Running the contract
+
+Go to [remix.ethereum.org](https://remix.ethereum.org).
+
+Exit out of the browser/ballot.sol file and create a new one called KVStore.sol by clicking the plus button in the top left corner. 
+
+Copy and paste the contract code from [here](https://github.com/willhay/kvstore/blob/master/contracts/KVStore.sol) into the text editor. 
+
+Click on the Run tab in the top right. 
+
+Your "Environment" should be set to Injected Web3 (Main (1))
+
+The Account should be set to your MetaMask address that you sent Ether to earlier. 
+
+Now paste this address:
+
+```
+0xf22E84de11feD37411B10DE2BF4e4C3b6b4dB36D
+```
+
+into the Load Contract From Address field farther down the page on the right. 
+
+Then click the "At Address" button to load the contract. 
+
+Now you should see an element popup with a "Set" and "Get" field. 
+
+Put something along the lines of 
+
+```
+"star","man"
+```
+in the input field and then click "Set". 
+
+You'll then get a popup detailing the transaction you're about to create. Click confirm and then open MetaMask and submit the transaction. 
+
+Your data is now written to the Ethereum blockchain and you can access it using the Get function. 
+
+Put your MetaMask address in the *address spot in the input and then the key value as the second argument of the Get function. 
+
+```
+*account, "key"
+```
+
+If you put in the parameters correctly, the Get function will return the data you just set earlier!
+
+## Using the contract (geth)
+
+These instructions will help you connect to the KVStore contract on the mainnet using geth.
 
 ### Prerequisites
 
@@ -42,8 +101,6 @@ Once the chain is synced up, run the following command to open up a new geth con
 ```
 geth --verbosity 0 console
 ```
-
-
 You need to double check to see if you have an ethereum balance by running 
 
 ```
@@ -53,7 +110,7 @@ web3.fromWei(eth.getBalance(eth.accounts[1]));
 Once you've confirmed you have ether to pay transaction fees, copy and paste the following command.
 
 ```
-var kvstoreContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"_key","type":"string"},{"name":"_value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_acct","type":"address"},{"name":"_key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]).at("0xada438c7e11697dbac29fbcc86751157a7e4dec9");
+var kvstoreContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"_key","type":"string"},{"name":"_value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_acct","type":"address"},{"name":"_key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]).at("0xf22E84de11feD37411B10DE2BF4e4C3b6b4dB36D");
 ```
 
 This creates a new variable containing the smart contract so you can interact with it.
@@ -67,9 +124,6 @@ Now that your account is unlocked, you can save data to the Ethereum blockchain 
 ```
 kvstoreContract.set("fly","star",{from:eth.accounts[1]});
 ```
-Now you have to wait a few minutes for the data to be confirmed in the next block. 
-
-You can check the status on etherscan.io
 
 Now run 
 
