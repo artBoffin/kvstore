@@ -7,65 +7,7 @@ I've outlined two potential ways to interact with the contract on the mainnet, u
 
 ## Using the contract (Remix IDE)
 
-These instructions will help you connect to the KVStore contract on the mainnet using Remix, a web based Solidity IDE.
-
-### Prerequisites
-
-Download [MetaMask](https://metamask.io/). 
-
-Open up MetaMask once you add the extension and create a new account.
-
-Send some ether to your new account. Depending on how much data you want to store, I'd recommend at least $1, as the set function at the current (3/18) gas prices costs about 5-10 cents. 
-
-### Running the contract
-
-Go to [remix.ethereum.org](https://remix.ethereum.org).
-
-Exit out of the browser/ballot.sol file and create a new one called KVStore.sol by clicking the plus button in the top left corner. 
-
-Copy and paste the contract code from [here](https://github.com/willhay/kvstore/blob/master/contracts/KVStore.sol) into the text editor. 
-
-In the top right, click the "Start to Compile" button or check "Auto Compile".
-
-Click on the Run tab in the top right. 
-
-Your "Environment" should be set to Injected Web3 (Main (1))
-
-The Account should be set to your MetaMask address that you sent Ether to earlier. 
-
-Now paste this address:
-
-```
-0xf22E84de11feD37411B10DE2BF4e4C3b6b4dB36D
-```
-
-into the Load Contract From Address field farther down the page on the right. 
-
-Then click the "At Address" button to load the contract. 
-
-Now you should see an element popup with a "Set" and "Get" field. 
-
-Put something along the lines of 
-
-```
-"star","man"
-```
-in the input field and then click "Set". 
-
-You'll then get a popup detailing the transaction you're about to create. Click confirm and then open MetaMask and submit the transaction. 
-
-Your data is now written to the Ethereum blockchain and you can access it using the Get function. 
-
-Put your MetaMask address in the *address spot in the input and then the key value as the second argument of the Get function. 
-
-Note the *address used in should NOT be the contract address, but your MetaMask account address which can be found in the Account input in the top right or if you click the MetaMask extension you can find the address there. 
-
-```
-*address, "star"
-```
-You may have to wait a minute or two for the data you just set to be propogated across the network and included in the next block before Get() will return the value correctly.  
-
-If you put in the parameters correctly, the Get function will return the data you just set earlier!
+Check out my [blog post](https://medium.com/@willhayjr/key-value-storage-on-the-ethereum-network-1f1e11bfac7a) for detailed instructions of how to use the contract using Remix. 
 
 ## Using the contract (geth)
 
