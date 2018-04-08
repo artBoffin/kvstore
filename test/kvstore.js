@@ -26,13 +26,17 @@ contract('KVStore', function (accounts) {
       });
     });
   });
-  it("should not allow string with length of over 1000 to be stored", function () {
+  it("should not allow string with length over 1000 to be stored", function () {
     var bigString = "satoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamotosatoshinakamoto";
     return KVStore.deployed().then(inst => { kvstore = inst }).then(function () {
-      return kvstore.set("tooBig", bigString).then(function () {
-        return kvstore.get(accounts[0], "tooBig").then(function (value) {
-          return assert.equal(value, "", "too large a string was saved in mapping");
-        });
+      return kvstore.set("tooBig", bigString)
+      .then(assert.fail)
+      .catch(function(error) {
+        if(error.actual != undefined && error.actual.tx != undefined) {
+          return assert(false, "too large a string was saved in mapping")
+        } else {
+            return assert(true);
+        }
       });
     });
   });
