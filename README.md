@@ -57,7 +57,7 @@ web3.fromWei(eth.getBalance(eth.accounts[1]));
 Once you've confirmed you have ether to pay transaction fees, copy and paste the following command.
 
 ```
-var kvstoreContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"_key","type":"string"},{"name":"_value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_acct","type":"address"},{"name":"_key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]).at("0xf22E84de11feD37411B10DE2BF4e4C3b6b4dB36D");
+var kvstoreContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"_key","type":"string"},{"name":"_value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_acct","type":"address"},{"name":"_key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]).at("0xd5598441fb71cbe19c16d25864cb8a3e3f0b77e5");
 ```
 
 This creates a new variable containing the smart contract so you can interact with it.
